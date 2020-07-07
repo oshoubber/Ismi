@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Insert Name View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="InsertNameViewController" customModule="Ismi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="What's your name?" textAlignment="center" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="70V-wM-WfU" userLabel="Name Text Field">
+                                <rect key="frame" x="70.5" y="272" width="273.5" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="34"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="yes" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                        <color key="value" white="0.90072073063380287" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My name is..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oA-ng-ld2" userLabel="My Name Label">
+                                <rect key="frame" x="159.5" y="232.5" width="95.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's predict your age, gender, and nationality using your name." textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Q0-1T-lBH" userLabel="App Info Label">
+                                <rect key="frame" x="30" y="821.5" width="354" height="20.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOG-x3-aE5">
+                                <rect key="frame" x="146.5" y="444" width="121" height="43"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                <state key="normal" title="Predict">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Iah-Hr-qKR" kind="presentation" id="SNl-bW-l5e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pOG-x3-aE5" firstAttribute="centerX" secondItem="70V-wM-WfU" secondAttribute="centerX" id="DrR-eL-6gB"/>
+                            <constraint firstItem="70V-wM-WfU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Lqp-mC-9DA"/>
+                            <constraint firstItem="6oA-ng-ld2" firstAttribute="centerX" secondItem="70V-wM-WfU" secondAttribute="centerX" id="M0H-DK-JDu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Q0-1T-lBH" secondAttribute="trailing" constant="30" id="MI9-78-Wau"/>
+                            <constraint firstItem="pOG-x3-aE5" firstAttribute="top" secondItem="70V-wM-WfU" secondAttribute="bottom" constant="130" id="QwX-iP-LmN"/>
+                            <constraint firstItem="70V-wM-WfU" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-160" id="gQg-Cj-69V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Q0-1T-lBH" secondAttribute="bottom" constant="20" id="sAE-8N-1Ir"/>
+                            <constraint firstItem="70V-wM-WfU" firstAttribute="top" secondItem="6oA-ng-ld2" secondAttribute="bottom" constant="20" id="sFx-4c-ofK"/>
+                            <constraint firstItem="3Q0-1T-lBH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="wVo-hX-di0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="70V-wM-WfU" id="jDo-sZ-ThR"/>
+                        <outlet property="predictButton" destination="pOG-x3-aE5" id="9pb-qH-lPE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="6n4-Li-rIm">
+            <objects>
+                <viewController id="Iah-Hr-qKR" customClass="ResultViewController" customModule="Ismi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IAX-z2-CpA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5X-PM-JuM" userLabel="Name Label">
+                                <rect key="frame" x="163.5" y="50" width="87" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I predict that you are..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-pK-VU2" userLabel="I Predict Label">
+                                <rect key="frame" x="101.5" y="201" width="211" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a [gender]," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mk-qT-hRf" userLabel="Gender Label">
+                                <rect key="frame" x="164.5" y="317.5" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[age] years old," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfk-r6-UK6" userLabel="Age Label">
+                                <rect key="frame" x="147.5" y="388.5" width="119" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and of [nationality] nationality." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5q-Ch-eYS" userLabel="Nationality Label">
+                                <rect key="frame" x="92" y="459.5" width="230" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zq4-kB-apX" userLabel="Try Different Button">
+                                <rect key="frame" x="100" y="637" width="214" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                <state key="normal" title="Try a different name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejw-07-DrE" userLabel="Try Random Button">
+                                <rect key="frame" x="103" y="708" width="208" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                <state key="normal" title="Try a random name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="y5X-PM-JuM" firstAttribute="top" secondItem="ubw-0w-A1n" secondAttribute="top" constant="50" id="0ha-ou-0Rx"/>
+                            <constraint firstItem="5mk-qT-hRf" firstAttribute="top" secondItem="vCp-pK-VU2" secondAttribute="bottom" constant="90" id="2Qv-Pb-bcj"/>
+                            <constraint firstItem="y5X-PM-JuM" firstAttribute="centerX" secondItem="ubw-0w-A1n" secondAttribute="centerX" id="2y7-My-woW"/>
+                            <constraint firstItem="Sfk-r6-UK6" firstAttribute="centerX" secondItem="5mk-qT-hRf" secondAttribute="centerX" id="SMt-mY-ov1"/>
+                            <constraint firstItem="vCp-pK-VU2" firstAttribute="centerX" secondItem="ubw-0w-A1n" secondAttribute="centerX" id="VXs-WY-R0X"/>
+                            <constraint firstItem="ubw-0w-A1n" firstAttribute="bottom" secondItem="zq4-kB-apX" secondAttribute="bottom" constant="130" id="WDj-Kb-Zlh"/>
+                            <constraint firstItem="5mk-qT-hRf" firstAttribute="centerX" secondItem="vCp-pK-VU2" secondAttribute="centerX" id="WQG-Sb-OEe"/>
+                            <constraint firstItem="vCp-pK-VU2" firstAttribute="centerY" secondItem="ubw-0w-A1n" secondAttribute="centerY" constant="-190" id="b6d-XA-4aS"/>
+                            <constraint firstItem="ejw-07-DrE" firstAttribute="centerX" secondItem="zq4-kB-apX" secondAttribute="centerX" id="be2-bE-z0X"/>
+                            <constraint firstItem="Q5q-Ch-eYS" firstAttribute="top" secondItem="Sfk-r6-UK6" secondAttribute="bottom" constant="50" id="caZ-jV-XNp"/>
+                            <constraint firstItem="zq4-kB-apX" firstAttribute="centerX" secondItem="ubw-0w-A1n" secondAttribute="centerX" id="rwA-9c-bgP"/>
+                            <constraint firstItem="ejw-07-DrE" firstAttribute="top" secondItem="zq4-kB-apX" secondAttribute="bottom" constant="30" id="uPW-HT-dzB"/>
+                            <constraint firstItem="Q5q-Ch-eYS" firstAttribute="centerX" secondItem="Sfk-r6-UK6" secondAttribute="centerX" id="wFw-jG-6fs"/>
+                            <constraint firstItem="Sfk-r6-UK6" firstAttribute="top" secondItem="5mk-qT-hRf" secondAttribute="bottom" constant="50" id="xnc-Gp-F3j"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ubw-0w-A1n"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BF8-1j-gBL"/>
+                    <connections>
+                        <outlet property="tryDifferentButton" destination="zq4-kB-apX" id="HZy-92-me1"/>
+                        <outlet property="tryRandomButton" destination="ejw-07-DrE" id="r5u-YA-o0X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iyk-Xw-l3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076.8115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>
