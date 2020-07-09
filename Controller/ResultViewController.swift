@@ -19,14 +19,17 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tryDifferentButton.layer.borderColor = UIColor.systemBlue.cgColor
-        tryRandomButton.layer.borderColor = UIColor.systemBlue.cgColor
-        
+        setButtonDesign()
         nameLabel.text = result!["name"]
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    @IBAction func tryDifferentName(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func setButtonDesign() {
+        tryDifferentButton.layer.borderColor = UIColor.systemBlue.cgColor
+        tryRandomButton.layer.borderColor = UIColor.systemBlue.cgColor
     }
     
 }
