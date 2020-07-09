@@ -19,7 +19,7 @@ struct GenderResponse: Codable {
 
 struct NationalizeResponse: Codable {
     let name: String
-    let countryProbabilities: [[String:String]]
+    let country: [[String:String]]
 }
 
 struct AgifyResponse: Codable {
