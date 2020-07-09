@@ -57,7 +57,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Iah-Hr-qKR" kind="presentation" id="SNl-bW-l5e"/>
+                                    <action selector="predictName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5pi-Hr-SMc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -87,45 +87,45 @@
         <!--Result View Controller-->
         <scene sceneID="6n4-Li-rIm">
             <objects>
-                <viewController id="Iah-Hr-qKR" customClass="ResultViewController" customModule="Ismi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" id="Iah-Hr-qKR" customClass="ResultViewController" customModule="Ismi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IAX-z2-CpA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5X-PM-JuM" userLabel="Name Label">
-                                <rect key="frame" x="163.5" y="50" width="87" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <rect key="frame" x="164.5" y="94" width="85.5" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I predict that you are..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-pK-VU2" userLabel="I Predict Label">
-                                <rect key="frame" x="101.5" y="201" width="211" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I predict that you are..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-pK-VU2" userLabel="I Predict Label">
+                                <rect key="frame" x="104.5" y="250" width="205.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a [gender]," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mk-qT-hRf" userLabel="Gender Label">
-                                <rect key="frame" x="164.5" y="317.5" width="85" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a [gender]," textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mk-qT-hRf" userLabel="Gender Label">
+                                <rect key="frame" x="163" y="366.5" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[age] years old," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfk-r6-UK6" userLabel="Age Label">
-                                <rect key="frame" x="147.5" y="388.5" width="119" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[age] years old," textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfk-r6-UK6" userLabel="Age Label">
+                                <rect key="frame" x="145.5" y="437.5" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and of [nationality] nationality." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5q-Ch-eYS" userLabel="Nationality Label">
-                                <rect key="frame" x="92" y="459.5" width="230" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and of [nationality] nationality." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5q-Ch-eYS" userLabel="Nationality Label">
+                                <rect key="frame" x="88" y="508.5" width="238.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zq4-kB-apX" userLabel="Try Different Button">
-                                <rect key="frame" x="100" y="637" width="214" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                <rect key="frame" x="63" y="705" width="288" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <inset key="contentEdgeInsets" minX="50" minY="10" maxX="50" maxY="10"/>
                                 <state key="normal" title="Try a different name"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -137,9 +137,9 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejw-07-DrE" userLabel="Try Random Button">
-                                <rect key="frame" x="103" y="708" width="208" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                <rect key="frame" x="66.5" y="782" width="281" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <inset key="contentEdgeInsets" minX="50" minY="10" maxX="50" maxY="10"/>
                                 <state key="normal" title="Try a random name"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -158,7 +158,7 @@
                             <constraint firstItem="y5X-PM-JuM" firstAttribute="centerX" secondItem="ubw-0w-A1n" secondAttribute="centerX" id="2y7-My-woW"/>
                             <constraint firstItem="Sfk-r6-UK6" firstAttribute="centerX" secondItem="5mk-qT-hRf" secondAttribute="centerX" id="SMt-mY-ov1"/>
                             <constraint firstItem="vCp-pK-VU2" firstAttribute="centerX" secondItem="ubw-0w-A1n" secondAttribute="centerX" id="VXs-WY-R0X"/>
-                            <constraint firstItem="ubw-0w-A1n" firstAttribute="bottom" secondItem="zq4-kB-apX" secondAttribute="bottom" constant="130" id="WDj-Kb-Zlh"/>
+                            <constraint firstItem="ubw-0w-A1n" firstAttribute="bottom" secondItem="zq4-kB-apX" secondAttribute="bottom" constant="110" id="WDj-Kb-Zlh"/>
                             <constraint firstItem="5mk-qT-hRf" firstAttribute="centerX" secondItem="vCp-pK-VU2" secondAttribute="centerX" id="WQG-Sb-OEe"/>
                             <constraint firstItem="vCp-pK-VU2" firstAttribute="centerY" secondItem="ubw-0w-A1n" secondAttribute="centerY" constant="-190" id="b6d-XA-4aS"/>
                             <constraint firstItem="ejw-07-DrE" firstAttribute="centerX" secondItem="zq4-kB-apX" secondAttribute="centerX" id="be2-bE-z0X"/>
@@ -172,6 +172,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BF8-1j-gBL"/>
                     <connections>
+                        <outlet property="nameLabel" destination="y5X-PM-JuM" id="0yA-KW-331"/>
                         <outlet property="tryDifferentButton" destination="zq4-kB-apX" id="HZy-92-me1"/>
                         <outlet property="tryRandomButton" destination="ejw-07-DrE" id="r5u-YA-o0X"/>
                     </connections>

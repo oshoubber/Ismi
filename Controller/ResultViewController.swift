@@ -13,14 +13,20 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var tryDifferentButton: UIButton!
     @IBOutlet weak var tryRandomButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var result: [String:String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tryDifferentButton.layer.borderColor = UIColor.systemBlue.cgColor
         tryRandomButton.layer.borderColor = UIColor.systemBlue.cgColor
+        
+        nameLabel.text = result!["name"]
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
 }

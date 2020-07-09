@@ -21,14 +21,31 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        predictButton.layer.borderColor = UIColor.white.cgColor
+        disablePredictButton()
         nameTextField.delegate = self
         createGradient()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subToForegroundNotif()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        unsubToForegrounNotif()
+    }
+    
+    @objc func willEnterForeground(_ notification: Notification) {
         animateGradient()
+    }
+    
+    func subToForegroundNotif(){
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    func unsubToForegrounNotif() {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     
@@ -57,7 +74,7 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
         
         let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
         gradientChangeAnimation.delegate = self
-        gradientChangeAnimation.duration = 4.0
+        gradientChangeAnimation.duration = 3.0
         gradientChangeAnimation.toValue = gradientSet[currentGradient]
         gradientChangeAnimation.fillMode = .forwards
         gradientChangeAnimation.isRemovedOnCompletion = false
@@ -72,11 +89,44 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
         }
     }
     
-    // MARK: Outlet Class Methods
+    
+    // MARK: Outlet / Action Class Methods
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        disablePredictButton()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if nameTextField.text == "" {
+            disablePredictButton()
+        } else {
+            enablePredictButton()
+        }
+    }
+    
+    func enablePredictButton() {
+        predictButton.layer.borderColor = UIColor.white.cgColor
+        predictButton.setTitleColor(UIColor.white, for: .normal)
+        predictButton.isEnabled = true
+    }
+    
+    func disablePredictButton() {
+        predictButton.layer.borderColor = UIColor.gray.cgColor
+        predictButton.setTitleColor(UIColor.gray, for: .disabled)
+        predictButton.isEnabled = false
+    }
+    
+    
+    @IBAction func predictName(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+        
+        controller.result = ["name": nameTextField.text!]
+        present(controller, animated: true, completion: nil)
     }
     
 }
