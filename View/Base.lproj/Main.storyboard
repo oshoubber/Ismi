@@ -175,7 +175,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="BF8-1j-gBL"/>
                     <connections>
+                        <outlet property="ageLabel" destination="Sfk-r6-UK6" id="lnk-1S-rgy"/>
+                        <outlet property="genderLabel" destination="5mk-qT-hRf" id="Z9E-5g-8n7"/>
                         <outlet property="nameLabel" destination="y5X-PM-JuM" id="0yA-KW-331"/>
+                        <outlet property="nationalityLabel" destination="Q5q-Ch-eYS" id="YuD-fh-nkG"/>
                         <outlet property="tryDifferentButton" destination="zq4-kB-apX" id="HZy-92-me1"/>
                         <outlet property="tryRandomButton" destination="ejw-07-DrE" id="r5u-YA-o0X"/>
                     </connections>

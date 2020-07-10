@@ -17,13 +17,26 @@ struct GenderResponse: Codable {
     let count: Int
 }
 
-struct NationalizeResponse: Codable {
-    let name: String
-    let country: [[String:String]]
-}
-
 struct AgifyResponse: Codable {
     let name: String
     let age: Int
     let count: Int
 }
+
+struct NationalizeResponse: Codable {
+    let name: String
+    let country: [Country]
+}
+
+// MARK: - Country
+struct Country: Codable {
+    let countryID: String
+    let probability: Double
+
+    enum CodingKeys: String, CodingKey {
+        case countryID = "country_id"
+        case probability
+    }
+}
+
+

@@ -40,22 +40,23 @@ class NameAPIs {
             
             let decoder = JSONDecoder()
             let genderData = try! decoder.decode(GenderResponse.self, from: data)
-            let res = ["gender":genderData.gender, "probability": genderData.probability] as [String : Any]
+            let res = ["gender": genderData.gender, "probability": genderData.probability] as [String : Any]
             
             completionHandler(res, nil)
         }
         task.resume()
     }
     
-    class func requestNationalize(name: String, completionHandler: @escaping ([[String:String]]?, Error?) -> Void) {
-        let endpoint = NameAPIs.Endpoint.genderize(name).url
+    class func requestNationalize(name: String, completionHandler: @escaping ([[String:Double]]?, Error?) -> Void) {
+        let endpoint = NameAPIs.Endpoint.nationalize(name).url
         let task = URLSession.shared.dataTask(with: endpoint) { (data, response, error) in
             guard let data = data else { completionHandler(nil, error); return }
-            
+
             let decoder = JSONDecoder()
             let nationalityData = try! decoder.decode(NationalizeResponse.self, from: data)
             
-            let res = nationalityData.countryProbabilities
+            var res:[[String:Double]] = []
+            for countryObj in nationalityData.country { res.append([countryObj.countryID : countryObj.probability]) }
             
             completionHandler(res, nil)
         }
@@ -63,7 +64,7 @@ class NameAPIs {
     }
     
     class func requestAgify(name: String, completionHandler: @escaping (Int?, Error?) -> Void) {
-        let endpoint = NameAPIs.Endpoint.genderize(name).url
+        let endpoint = NameAPIs.Endpoint.agify(name).url
         let task = URLSession.shared.dataTask(with: endpoint) { (data, response, error) in
             guard let data = data else { completionHandler(nil, error); return }
             

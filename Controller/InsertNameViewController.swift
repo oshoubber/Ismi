@@ -16,6 +16,10 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
     let gradient = CAGradientLayer()
     var gradientSet = [[CGColor]]()
     var currentGradient: Int = 0
+    var result: [String:Any] = [:]
+    var countries: [[String:Double]] = []
+    let group = DispatchGroup()
+    var isWaiting:Bool = true
     
     // MARK: View Controller Methods
     
@@ -123,10 +127,50 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
     
     
     @IBAction func predictName(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+        let name = nameTextField.text!
+        createDispatchGroups(n: 3)
         
-        controller.result = ["name": nameTextField.text!]
+        NameAPIs.requestGenderize(name: name, completionHandler: handleGenderizeResponse(genderizeResult:error:))
+        NameAPIs.requestNationalize(name: name, completionHandler: handleNationalizeResponse(nationalizeResult:error:))
+        NameAPIs.requestAgify(name: name, completionHandler: handleAgifyResponse(agifyResult:error:))
+        
+        group.notify(queue: .main, execute: {
+            DispatchQueue.main.async {
+                self.goToResults()
+            }
+        })
+        
+        result["name"] = nameTextField.text
+        
+    }
+    
+    // MARK: API Call Helper Methods
+    
+    func createDispatchGroups(n:Int) { for _ in 1...n { group.enter() } }
+    
+    func goToResults() {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+        controller.result = result
+        controller.countries = countries
         present(controller, animated: true, completion: nil)
+    }
+    
+    func handleGenderizeResponse(genderizeResult: [String:Any]?, error: Error?) {
+        result["gender"] = genderizeResult!["gender"]
+        result["genderProbability"] = genderizeResult!["probability"]
+        group.leave()
+        
+    }
+    
+    func handleNationalizeResponse(nationalizeResult: [[String:Double]]?, error: Error?) {
+        countries = nationalizeResult!
+        result["countries"] = nationalizeResult
+        group.leave()
+    }
+    
+    func handleAgifyResponse(agifyResult: Int?, error: Error?) {
+        result["age"] = agifyResult
+        group.leave()
     }
     
 }
