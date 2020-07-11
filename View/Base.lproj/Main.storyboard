@@ -105,20 +105,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a [gender]," textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mk-qT-hRf" userLabel="Gender Label">
-                                <rect key="frame" x="163" y="366.5" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <rect key="frame" x="160" y="326.5" width="94" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[age] years old," textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfk-r6-UK6" userLabel="Age Label">
-                                <rect key="frame" x="145.5" y="437.5" width="123" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <rect key="frame" x="141.5" y="400.5" width="131.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and of [nationality] nationality." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5q-Ch-eYS" userLabel="Nationality Label">
-                                <rect key="frame" x="88" y="508.5" width="238.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and of [nationality] nationality." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5q-Ch-eYS" userLabel="Nationality Label">
+                                <rect key="frame" x="30" y="474.5" width="354" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -157,8 +157,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="y5X-PM-JuM" firstAttribute="top" secondItem="ubw-0w-A1n" secondAttribute="top" constant="50" id="0ha-ou-0Rx"/>
-                            <constraint firstItem="5mk-qT-hRf" firstAttribute="top" secondItem="vCp-pK-VU2" secondAttribute="bottom" constant="90" id="2Qv-Pb-bcj"/>
+                            <constraint firstItem="5mk-qT-hRf" firstAttribute="top" secondItem="vCp-pK-VU2" secondAttribute="bottom" constant="50" id="2Qv-Pb-bcj"/>
                             <constraint firstItem="y5X-PM-JuM" firstAttribute="centerX" secondItem="ubw-0w-A1n" secondAttribute="centerX" id="2y7-My-woW"/>
+                            <constraint firstItem="Q5q-Ch-eYS" firstAttribute="leading" secondItem="ubw-0w-A1n" secondAttribute="leading" constant="30" id="DUj-KF-b7F"/>
                             <constraint firstItem="Sfk-r6-UK6" firstAttribute="centerX" secondItem="5mk-qT-hRf" secondAttribute="centerX" id="SMt-mY-ov1"/>
                             <constraint firstItem="vCp-pK-VU2" firstAttribute="centerX" secondItem="ubw-0w-A1n" secondAttribute="centerX" id="VXs-WY-R0X"/>
                             <constraint firstItem="ubw-0w-A1n" firstAttribute="bottom" secondItem="zq4-kB-apX" secondAttribute="bottom" constant="110" id="WDj-Kb-Zlh"/>
@@ -166,9 +167,9 @@
                             <constraint firstItem="vCp-pK-VU2" firstAttribute="centerY" secondItem="ubw-0w-A1n" secondAttribute="centerY" constant="-190" id="b6d-XA-4aS"/>
                             <constraint firstItem="ejw-07-DrE" firstAttribute="centerX" secondItem="zq4-kB-apX" secondAttribute="centerX" id="be2-bE-z0X"/>
                             <constraint firstItem="Q5q-Ch-eYS" firstAttribute="top" secondItem="Sfk-r6-UK6" secondAttribute="bottom" constant="50" id="caZ-jV-XNp"/>
+                            <constraint firstItem="ubw-0w-A1n" firstAttribute="trailing" secondItem="Q5q-Ch-eYS" secondAttribute="trailing" constant="30" id="fB7-8f-fJp"/>
                             <constraint firstItem="zq4-kB-apX" firstAttribute="centerX" secondItem="ubw-0w-A1n" secondAttribute="centerX" id="rwA-9c-bgP"/>
                             <constraint firstItem="ejw-07-DrE" firstAttribute="top" secondItem="zq4-kB-apX" secondAttribute="bottom" constant="30" id="uPW-HT-dzB"/>
-                            <constraint firstItem="Q5q-Ch-eYS" firstAttribute="centerX" secondItem="Sfk-r6-UK6" secondAttribute="centerX" id="wFw-jG-6fs"/>
                             <constraint firstItem="Sfk-r6-UK6" firstAttribute="top" secondItem="5mk-qT-hRf" secondAttribute="bottom" constant="50" id="xnc-Gp-F3j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ubw-0w-A1n"/>

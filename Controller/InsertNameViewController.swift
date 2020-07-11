@@ -22,17 +22,16 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
     
     // API Result Vars
     var result: [String:Any] = [:]
-    var countries: [[String:Double]] = []
     let group = DispatchGroup()
-    var isWaiting:Bool = true
+    var isWaiting: Bool = true
     
     // MARK: View Controller Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         gradientChangeAnimation.delegate = gradientBackground
-        disablePredictButton()
         nameTextField.delegate = self
+        disablePredictButton()
         createGradient()
     }
     
@@ -49,6 +48,8 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
     @objc func willEnterForeground(_ notification: Notification) {
         animateGradient()
     }
+    
+    // MARK: Notification Center Observers
     
     func subToForegroundNotif(){
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -71,7 +72,6 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
     func animateGradient() {
         gradientChangeAnimation = gradientBackground.getGradientAnimation()
         gradient.add(gradientChangeAnimation, forKey: "colorChange")
-        
     }
     
     
@@ -109,32 +109,22 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
     
     @IBAction func predictName(_ sender: Any) {
         let name = nameTextField.text!
+        
         createDispatchGroups(n: 3)
         
         NameAPIs.requestGenderize(name: name, completionHandler: handleGenderizeResponse(genderizeResult:error:))
         NameAPIs.requestNationalize(name: name, completionHandler: handleNationalizeResponse(nationalizeResult:error:))
         NameAPIs.requestAgify(name: name, completionHandler: handleAgifyResponse(agifyResult:error:))
         
-        group.notify(queue: .main, execute: {
-            DispatchQueue.main.async {
-                self.goToResults()
-            }
-        })
+        group.notify(queue: .main, execute: { DispatchQueue.main.async { self.goToResults() }})
         
-        result["name"] = nameTextField.text
+        result["name"] = name
         
     }
     
-    // MARK: API Call Helper Methods
     
-    func createDispatchGroups(n: Int) { for _ in 1...n { group.enter() } }
     
-    func goToResults() {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
-        controller.result = result
-        controller.countries = countries
-        present(controller, animated: true, completion: nil)
-    }
+    // MARK: API Response Handlers
     
     func handleGenderizeResponse(genderizeResult: [String:Any]?, error: Error?) {
         result["gender"] = genderizeResult!["gender"]
@@ -143,15 +133,41 @@ class InsertNameViewController: UIViewController, CAAnimationDelegate, UITextFie
         
     }
     
-    func handleNationalizeResponse(nationalizeResult: [[String:Double]]?, error: Error?) {
-        countries = nationalizeResult!
-        result["countries"] = nationalizeResult
-        group.leave()
-    }
-    
     func handleAgifyResponse(agifyResult: Int?, error: Error?) {
         result["age"] = agifyResult
         group.leave()
+    }
+    
+    func handleNationalizeResponse(nationalizeResult: [String:Double]?, error: Error?) {
+        result["countries"] = getCountryNames(nationalizeResult: nationalizeResult!)
+        group.leave()
+    }
+    
+    
+    // MARK: API Response Helper Methods
+    
+    func createDispatchGroups(n: Int) { for _ in 1...n { group.enter() } }
+    
+    func getCountryNames(nationalizeResult: [String:Double]) -> [String:Double] {
+        var res: [String:Double] = [:]
+        let current = Locale(identifier: "en_US")
+        
+        // Convert country codes to country name
+        for cc in nationalizeResult.keys {
+            if cc == "" { continue }
+            let countryName = current.localizedString(forRegionCode: cc)
+            res[countryName!] = nationalizeResult[cc]
+        }
+        
+        return res
+    }
+    
+    func goToResults() {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+        controller.result = result
+        
+        // Present ResultsViewController when all API calls have finished
+        present(controller, animated: true, completion: nil)
     }
     
 }

@@ -19,19 +19,11 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var nationalityLabel: UILabel!
     
     var result: [String:Any]?
-    var countries: [[String:Double]]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonDesign()
-        nameLabel.text = result!["name"] as? String
-        genderLabel.text = "a \(result!["gender"] ?? "")"
-        ageLabel.text = "\(result!["age"] ?? "") years old"
-        
-        let firstCountry = Array(countries![0].keys)
-        
-        nationalityLabel.text = "and of \(firstCountry) nationality"
-        
+        setLabels()
     }
     
     @IBAction func tryDifferentName(_ sender: Any) {
@@ -41,6 +33,21 @@ class ResultViewController: UIViewController {
     func setButtonDesign() {
         tryDifferentButton.layer.borderColor = UIColor.systemBlue.cgColor
         tryRandomButton.layer.borderColor = UIColor.systemBlue.cgColor
+    }
+    
+    
+    func setLabels() {
+        nameLabel.text = result!["name"] as? String
+        genderLabel.text = "a \(result!["gender"] ?? "") with \(result!["genderProbability"] ?? "") probability"
+        ageLabel.text = "\(result!["age"] ?? "") years old"
+        nationalityLabel.text = "and of \(checkCountries()) ancestry."
+    }
+    
+    func checkCountries() -> [String]{
+        let countries = result?["countries"]! as! [String:Double]
+        let countryNames = Array(countries.keys)
+        
+        return countryNames == [] ? ["Unknown"] : countryNames
     }
     
 }

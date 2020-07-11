@@ -47,7 +47,7 @@ class NameAPIs {
         task.resume()
     }
     
-    class func requestNationalize(name: String, completionHandler: @escaping ([[String:Double]]?, Error?) -> Void) {
+    class func requestNationalize(name: String, completionHandler: @escaping ([String:Double]?, Error?) -> Void) {
         let endpoint = NameAPIs.Endpoint.nationalize(name).url
         let task = URLSession.shared.dataTask(with: endpoint) { (data, response, error) in
             guard let data = data else { completionHandler(nil, error); return }
@@ -55,8 +55,8 @@ class NameAPIs {
             let decoder = JSONDecoder()
             let nationalityData = try! decoder.decode(NationalizeResponse.self, from: data)
             
-            var res:[[String:Double]] = []
-            for countryObj in nationalityData.country { res.append([countryObj.countryID : countryObj.probability]) }
+            var res:[String:Double] = [:]
+            for countryObj in nationalityData.country { res[countryObj.countryID] = countryObj.probability }
             
             completionHandler(res, nil)
         }
